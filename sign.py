@@ -17,7 +17,8 @@ def sign(m):
 	#generate signature
 	#Your code here
 	eliptical = secp256k1
-	r, s = ecdsa.sign(m, private_key, secp256k1,sha256)
+	hashedFunction = sha256
+	r, s = ecdsa.sign(m, private_key, eliptical, hashedFunction)
 
 	assert isinstance( public_key, point.Point )
 	assert isinstance( r, int )
