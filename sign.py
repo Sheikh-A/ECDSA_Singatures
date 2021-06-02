@@ -21,10 +21,12 @@ def sign(m):
 
 #r, s = ecdsa.sign(m, private_key, eliptical, hashedFunction)
 	r, s = ecdsa.sign(m, private_key, secp256k1, sha256)
-
+	#CHECK FUNCTION
 	print(r,s)
 
 	assert isinstance( public_key, point.Point )
 	assert isinstance( r, int )
 	assert isinstance( s, int )
 	return( public_key, [r,s] )
+
+#print(sign(100))
