@@ -16,10 +16,9 @@ def sign(m):
 
 	#generate signature
 	#Your code here
-	r, s = ecdsa.sign(m, private_key, curve=secp256k1, hashfunc=sha256)
+	eliptical = secp256k1
+	r, s = ecdsa.sign(m, private_key, secp256k1,sha256)
 
-	checkBalance = ecdsa.verify((r,s), m, public_key, curve=secp256k1, hashfunc=sha256)
-	print(checkBalance)
 	assert isinstance( public_key, point.Point )
 	assert isinstance( r, int )
 	assert isinstance( s, int )
